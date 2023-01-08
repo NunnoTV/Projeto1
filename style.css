@@ -66,7 +66,7 @@ body * {
 
 #switch span {
   display: block;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   height: 24px;
   width: 64px;
   border-radius: 9999px;
@@ -82,11 +82,15 @@ body * {
   right: 1;
   transform: translateY(-50%);
   top: 50%;
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid rgba(255, 255, 255, 0.1);
 }
 
 /* links */
@@ -153,5 +157,23 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg_desktop_light.png);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
